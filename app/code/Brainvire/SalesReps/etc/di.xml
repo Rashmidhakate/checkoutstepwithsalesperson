@@ -1,0 +1,46 @@
+<?xml version="1.0" ?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+	<!-- <type name="Magento\Framework\View\Element\UiComponent\DataProvider\CollectionFactory">
+		<arguments>
+			<argument name="collections" xsi:type="array">
+				<item name="salesreps_customer_listing_data_source" xsi:type="string">Magento\Customer\Model\ResourceModel\Grid\Collection</item>
+			</argument>
+		</arguments>
+	</type> -->
+	<virtualType name="Brainvire\SalesReps\SalesRepsImageUpload" type="Brainvire\SalesReps\Model\ImageUploader">
+		<arguments>
+			<argument name="baseTmpPath" xsi:type="string">salesres/tmp</argument>
+			<argument name="basePath" xsi:type="string">salesres</argument>
+			<argument name="allowedExtensions" xsi:type="array">
+				<item name="jpg" xsi:type="string">jpg</item>
+				<item name="jpeg" xsi:type="string">jpeg</item>
+				<item name="gif" xsi:type="string">gif</item>
+				<item name="png" xsi:type="string">png</item>
+			</argument>
+		</arguments>
+	</virtualType>
+	<type name="Brainvire\SalesReps\Controller\Adminhtml\SalesReps\Upload">
+		<arguments>
+			<argument name="imageUploader" xsi:type="object">Brainvire\SalesReps\SalesRepsImageUpload</argument>
+		</arguments>
+	</type>
+	<preference for="Brainvire\SalesReps\Api\SalesRepsRepositoryInterface" type="Brainvire\SalesReps\Model\SalesRepsRepository"/>
+	<preference for="Brainvire\SalesReps\Api\Data\SalesRepsInterface" type="Brainvire\SalesReps\Model\Data\SalesReps"/>
+	<preference for="Brainvire\SalesReps\Api\Data\SalesRepsSearchResultsInterface" type="Magento\Framework\Api\SearchResults"/>
+	<virtualType name="Brainvire\SalesReps\Model\ResourceModel\SalesReps\Grid\Collection" type="Magento\Framework\View\Element\UiComponent\DataProvider\SearchResult">
+		<arguments>
+			<argument name="mainTable" xsi:type="string">brainvire_salesreps_salesreps</argument>
+			<argument name="resourceModel" xsi:type="string">Brainvire\SalesReps\Model\ResourceModel\SalesReps\Collection</argument>
+		</arguments>
+	</virtualType>
+	<type name="Magento\Framework\View\Element\UiComponent\DataProvider\CollectionFactory">
+		<arguments>
+			<argument name="collections" xsi:type="array">
+				<item name="brainvire_salesreps_salesreps_listing_data_source" xsi:type="string">Brainvire\SalesReps\Model\ResourceModel\SalesReps\Grid\Collection</item>
+			</argument>
+		</arguments>
+	</type>
+	<preference for="Brainvire\SalesReps\Api\GetSalesRepsManagementInterface" type="Brainvire\SalesReps\Model\GetSalesRepsManagement"/>
+	<preference for="Brainvire\SalesReps\Api\AddSalesRepsManagementInterface" type="Brainvire\SalesReps\Model\AddSalesRepsManagement"/>
+	<preference for="Brainvire\SalesReps\Api\DeleteSalesPersManagementInterface" type="Brainvire\SalesReps\Model\DeleteSalesPersManagement"/>
+</config>

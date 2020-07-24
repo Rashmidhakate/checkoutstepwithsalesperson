@@ -1,0 +1,143 @@
+<?xml version="1.0" ?>
+<listing xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Ui:etc/ui_configuration.xsd">
+	<argument name="data" xsi:type="array">
+		<item name="js_config" xsi:type="array">
+			<item name="provider" xsi:type="string">brainvire_salesreps_salesreps_listing.brainvire_salesreps_salesreps_listing_data_source</item>
+		</item>
+	</argument>
+	<settings>
+		<spinner>brainvire_salesreps_salesreps_columns</spinner>
+		<deps>
+			<dep>brainvire_salesreps_salesreps_listing.brainvire_salesreps_salesreps_listing_data_source</dep>
+		</deps>
+		<buttons>
+			<button name="add">
+				<url path="*/*/new"/>
+				<class>primary</class>
+				<label translate="true">Add new SalesReps</label>
+			</button>
+		</buttons>
+	</settings>
+	<dataSource component="Magento_Ui/js/grid/provider" name="brainvire_salesreps_salesreps_listing_data_source">
+		<settings>
+			<updateUrl path="mui/index/render"/>
+		</settings>
+		<aclResource>Brainvire_SalesReps::SalesReps</aclResource>
+		<dataProvider class="Magento\Framework\View\Element\UiComponent\DataProvider\DataProvider" name="brainvire_salesreps_salesreps_listing_data_source">
+			<settings>
+				<requestFieldName>id</requestFieldName>
+				<primaryFieldName>salesreps_id</primaryFieldName>
+			</settings>
+		</dataProvider>
+	</dataSource>
+	<listingToolbar name="listing_top">
+		<settings>
+			<sticky>true</sticky>
+		</settings>
+		<bookmark name="bookmarks"/>
+		<columnsControls name="columns_controls"/>
+		<filters name="listing_filters"/>
+		<paging name="listing_paging"/>
+	</listingToolbar>
+	<columns name="brainvire_salesreps_salesreps_columns">
+		<settings>
+			<editorConfig>
+				<param name="selectProvider" xsi:type="string">brainvire_salesreps_salesreps_listing.brainvire_salesreps_salesreps_listing.brainvire_salesreps_salesreps_columns.ids</param>
+				<param name="enabled" xsi:type="boolean">true</param>
+				<param name="indexField" xsi:type="string">salesreps_id</param>
+				<param name="clientConfig" xsi:type="array">
+					<item name="saveUrl" path="brainvire_salesreps/SalesReps/inlineEdit" xsi:type="url"/>
+					<item name="validateBeforeSave" xsi:type="boolean">false</item>
+				</param>
+			</editorConfig>
+			<childDefaults>
+				<param name="fieldAction" xsi:type="array">
+					<item name="provider" xsi:type="string">brainvire_salesreps_salesreps_listing.brainvire_salesreps_salesreps_listing.brainvire_salesreps_salesreps_columns_editor</item>
+					<item name="target" xsi:type="string">startEdit</item>
+					<item name="params" xsi:type="array">
+						<item name="0" xsi:type="string">${ $.$data.rowIndex }</item>
+						<item name="1" xsi:type="boolean">true</item>
+					</item>
+				</param>
+			</childDefaults>
+		</settings>
+		<selectionsColumn name="ids">
+			<settings>
+				<indexField>salesreps_id</indexField>
+			</settings>
+		</selectionsColumn>
+		<column name="salesreps_id">
+			<settings>
+				<filter>text</filter>
+				<sorting>asc</sorting>
+				<label translate="true">ID</label>
+			</settings>
+		</column>
+		<column name="sales_person_code">
+			<settings>
+				<filter>text</filter>
+				<label translate="true">sales_person_code</label>
+				<editor>
+					<editorType>text</editorType>
+					<validation>
+						<rule name="required-entry" xsi:type="boolean">false</rule>
+					</validation>
+				</editor>
+			</settings>
+		</column>
+		<column name="sales_person_name">
+			<settings>
+				<filter>text</filter>
+				<label translate="true">sales_person_name</label>
+				<editor>
+					<editorType>text</editorType>
+					<validation>
+						<rule name="required-entry" xsi:type="boolean">false</rule>
+					</validation>
+				</editor>
+			</settings>
+		</column>
+		<column name="sales_person_division">
+			<settings>
+				<filter>text</filter>
+				<label translate="true">sales_person_division</label>
+				<editor>
+					<editorType>text</editorType>
+					<validation>
+						<rule name="required-entry" xsi:type="boolean">false</rule>
+					</validation>
+				</editor>
+			</settings>
+		</column>
+		<column name="sales_manager_division">
+			<settings>
+				<filter>text</filter>
+				<label translate="true">sales_manager_division</label>
+				<editor>
+					<editorType>text</editorType>
+					<validation>
+						<rule name="required-entry" xsi:type="boolean">false</rule>
+					</validation>
+				</editor>
+			</settings>
+		</column>
+		<column name="sales_manager_code">
+			<settings>
+				<filter>text</filter>
+				<label translate="true">sales_manager_code</label>
+				<editor>
+					<editorType>text</editorType>
+					<validation>
+						<rule name="required-entry" xsi:type="boolean">false</rule>
+					</validation>
+				</editor>
+			</settings>
+		</column>
+		<actionsColumn class="Brainvire\SalesReps\Ui\Component\Listing\Column\SalesRepsActions" name="actions">
+			<settings>
+				<indexField>salesreps_id</indexField>
+				<resizeEnabled>false</resizeEnabled>
+			</settings>
+		</actionsColumn>
+	</columns>
+</listing>

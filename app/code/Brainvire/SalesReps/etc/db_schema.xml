@@ -1,0 +1,28 @@
+<?xml version="1.0" ?>
+<schema xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:Setup/Declaration/Schema/etc/schema.xsd">
+	<table comment="brainvire_salesreps_salesreps Table" engine="innodb" name="brainvire_salesreps_salesreps" resource="default">
+		<column comment="Entity Id" identity="true" name="salesreps_id" nullable="false" padding="6" unsigned="false" xsi:type="int"/>
+		<constraint referenceId="PRIMARY" xsi:type="primary">
+			<column name="salesreps_id"/>
+		</constraint>
+		<column length="255" name="sales_person_code" nullable="true" xsi:type="varchar"/>
+		<column length="255" name="sales_person_name" nullable="true" xsi:type="varchar"/>
+		<column length="255" name="sales_person_division" nullable="true" xsi:type="varchar"/>
+		<column length="255" name="sales_manager_division" nullable="true" xsi:type="varchar"/>
+		<column length="255" name="sales_manager_code" nullable="true" xsi:type="varchar"/>
+		<column xsi:type="text" name="customer_ids" nullable="true" comment="Customer Ids"/>
+	</table>
+	<table comment="brainvire_salesreps_product Table" engine="innodb" name="brainvire_salesreps_product" resource="default">
+		<column comment="Record Id" identity="true" name="record_id" nullable="false" padding="6" unsigned="true" xsi:type="int"/>
+		<constraint referenceId="PRIMARY" xsi:type="primary">
+			<column name="record_id"/>
+		</constraint>
+		<column comment="Entity Id" identity="false" name="salesreps_id" default="0" nullable="false" padding="6" unsigned="false" xsi:type="int"/>
+		<column length="255" name="sku" nullable="true" xsi:type="varchar"/>
+		<column length="255" name="qty" nullable="true" xsi:type="varchar"/>
+		<column length="255" name="price" nullable="true" xsi:type="varchar"/>
+		<column length="255" name="customer_group" nullable="true" xsi:type="varchar"/>
+		<column length="255" name="image" nullable="true" xsi:type="varchar"/>
+		<constraint xsi:type="foreign" referenceId="BRAINVIRE_SALESREPS_PRODUCT_SALESREPS_ID_BRAINVIRE_SALESREPS_SALESREPS_SALESREPS_ID" table="brainvire_salesreps_product" column="salesreps_id" referenceTable="brainvire_salesreps_salesreps" referenceColumn="salesreps_id" onDelete="CASCADE"/>
+	</table>
+</schema>

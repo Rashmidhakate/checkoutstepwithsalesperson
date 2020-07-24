@@ -1,0 +1,287 @@
+<?xml version="1.0" ?>
+<form xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Ui:etc/ui_configuration.xsd">
+	<argument name="data" xsi:type="array">
+		<item name="js_config" xsi:type="array">
+			<item name="provider" xsi:type="string">brainvire_salesreps_salesreps_form.brainvire_salesreps_salesreps_form_data_source</item>
+		</item>
+		<item name="label" translate="true" xsi:type="string">General Information</item>
+	</argument>
+	<settings>
+		<buttons>
+			<button class="Brainvire\SalesReps\Block\Adminhtml\SalesReps\Edit\BackButton" name="back"/>
+			<button class="Brainvire\SalesReps\Block\Adminhtml\SalesReps\Edit\DeleteButton" name="delete"/>
+			<button class="Brainvire\SalesReps\Block\Adminhtml\SalesReps\Edit\SaveButton" name="save"/>
+			<button class="Brainvire\SalesReps\Block\Adminhtml\SalesReps\Edit\SaveAndContinueButton" name="save_and_continue"/>
+		</buttons>
+		<namespace>brainvire_salesreps_salesreps_form</namespace>
+		<dataScope>data</dataScope>
+		<layout>
+            <navContainerName>left</navContainerName>
+            <type>tabs</type>
+        </layout>
+		<deps>
+			<dep>brainvire_salesreps_salesreps_form.brainvire_salesreps_salesreps_form_data_source</dep>
+		</deps>
+	</settings>
+	<dataSource name="brainvire_salesreps_salesreps_form_data_source">
+		<argument name="data" xsi:type="array">
+			<item name="js_config" xsi:type="array">
+				<item name="component" xsi:type="string">Magento_Ui/js/form/provider</item>
+			</item>
+		</argument>
+		<settings>
+			<submitUrl path="*/*/save"/>
+		</settings>
+		<dataProvider class="Brainvire\SalesReps\Model\SalesReps\DataProvider" name="brainvire_salesreps_salesreps_form_data_source">
+			<settings>
+				<requestFieldName>salesreps_id</requestFieldName>
+				<primaryFieldName>salesreps_id</primaryFieldName>
+			</settings>
+		</dataProvider>
+	</dataSource>
+	<fieldset name="general">
+		<settings>
+			<label>General</label>
+		</settings>
+		<field formElement="hidden" name="salesreps_id" sortOrder="10">
+			<argument name="data" xsi:type="array">
+				<item name="config" xsi:type="array">
+					<item name="source" xsi:type="string">SalesReps</item>
+				</item>
+			</argument>
+			<settings>
+				<dataType>text</dataType>
+				<label translate="true">salesreps_id</label>
+				<dataScope>salesreps_id</dataScope>
+				<validation>
+					<rule name="required-entry" xsi:type="boolean">false</rule>
+				</validation>
+			</settings>
+		</field>
+		<field formElement="hidden" name="selected_record_id" sortOrder="10">
+			<argument name="data" xsi:type="array">
+				<item name="config" xsi:type="array">
+					<item name="source" xsi:type="string">SalesReps</item>
+				</item>
+			</argument>
+			<settings>
+				<dataType>text</dataType>
+				<label translate="true">record_id</label>
+				<dataScope>record_id</dataScope>
+				<validation>
+					<rule name="required-entry" xsi:type="boolean">false</rule>
+				</validation>
+			</settings>
+		</field>
+		<field formElement="input" name="sales_person_code" sortOrder="10">
+			<argument name="data" xsi:type="array">
+				<item name="config" xsi:type="array">
+					<item name="source" xsi:type="string">SalesReps</item>
+				</item>
+			</argument>
+			<settings>
+				<dataType>text</dataType>
+				<label translate="true">sales_person_code</label>
+				<dataScope>sales_person_code</dataScope>
+				<validation>
+					<rule name="required-entry" xsi:type="boolean">true</rule>
+				</validation>
+			</settings>
+		</field>
+		<field formElement="input" name="sales_person_name" sortOrder="20">
+			<argument name="data" xsi:type="array">
+				<item name="config" xsi:type="array">
+					<item name="source" xsi:type="string">SalesReps</item>
+				</item>
+			</argument>
+			<settings>
+				<dataType>text</dataType>
+				<label translate="true">sales_person_name</label>
+				<dataScope>sales_person_name</dataScope>
+				<validation>
+					<rule name="required-entry" xsi:type="boolean">true</rule>
+				</validation>
+			</settings>
+		</field>
+		<field formElement="input" name="sales_person_division" sortOrder="30">
+			<argument name="data" xsi:type="array">
+				<item name="config" xsi:type="array">
+					<item name="source" xsi:type="string">SalesReps</item>
+				</item>
+			</argument>
+			<settings>
+				<dataType>text</dataType>
+				<label translate="true">sales_person_division</label>
+				<dataScope>sales_person_division</dataScope>
+				<validation>
+					<rule name="required-entry" xsi:type="boolean">true</rule>
+				</validation>
+			</settings>
+		</field>
+		<field formElement="input" name="sales_manager_division" sortOrder="40">
+			<argument name="data" xsi:type="array">
+				<item name="config" xsi:type="array">
+					<item name="source" xsi:type="string">SalesReps</item>
+				</item>
+			</argument>
+			<settings>
+				<dataType>text</dataType>
+				<label translate="true">sales_manager_division</label>
+				<dataScope>sales_manager_division</dataScope>
+				<validation>
+					<rule name="required-entry" xsi:type="boolean">true</rule>
+				</validation>
+			</settings>
+		</field>
+		<field formElement="input" name="sales_manager_code" sortOrder="50">
+			<argument name="data" xsi:type="array">
+				<item name="config" xsi:type="array">
+					<item name="source" xsi:type="string">SalesReps</item>
+				</item>
+			</argument>
+			<settings>
+				<dataType>text</dataType>
+				<label translate="true">sales_manager_code</label>
+				<dataScope>sales_manager_code</dataScope>
+				<validation>
+					<rule name="required-entry" xsi:type="boolean">true</rule>
+				</validation>
+			</settings>
+		</field>
+		<!-- <field formElement="multiselect" name="customer_ids" sortOrder="60">
+			<argument name="data" xsi:type="array">
+				<item name="options" xsi:type="object">Brainvire\SalesReps\Model\Source\Customers</item>
+					<item name="config" xsi:type="array">
+						<item name="dataType" xsi:type="string">text</item>
+						<item name="label" translate="true" xsi:type="string">Cusomers Selection</item>
+					</item>
+			</argument>
+		</field> -->
+		<dynamicRows name="dynamic_rows">
+			<settings>
+				<addButtonLabel translate="true">Add Record</addButtonLabel>
+				<additionalClasses>
+					<class name="admin__field-wide">true</class>
+				</additionalClasses>
+				<componentType>dynamicRows</componentType>
+			</settings>
+			<container name="record" component="Magento_Ui/js/dynamic-rows/record">
+				<argument name="data" xsi:type="array">
+					<item name="config" xsi:type="array">
+						<item name="isTemplate" xsi:type="boolean">true</item>
+						<item name="is_collection" xsi:type="boolean">true</item>
+						<item name="componentType" xsi:type="string">container</item>
+					</item>
+				</argument>
+				<field name="salesreps_id" formElement="hidden">
+					<argument name="data" xsi:type="array">
+						<item name="config" xsi:type="array">
+							<item name="fit" xsi:type="boolean">false</item>
+						</item>
+					</argument>
+					<settings>
+						<dataType>text</dataType>
+						<dataScope>salesreps_id</dataScope>
+					</settings>
+				</field>
+				<field name="sku" formElement="input">
+					<argument name="data" xsi:type="array">
+						<item name="config" xsi:type="array">
+							<item name="fit" xsi:type="boolean">false</item>
+						</item>
+					</argument>
+					<settings>
+						<validation>
+							<rule name="required-entry" xsi:type="boolean">true</rule>
+						</validation>
+						<dataType>text</dataType>
+						<label>Sku</label>
+						<dataScope>sku</dataScope>
+					</settings>
+				</field>
+				<field name="qty" formElement="input">
+					<argument name="data" xsi:type="array">
+						<item name="config" xsi:type="array">
+							<item name="fit" xsi:type="boolean">false</item>
+						</item>
+					</argument>
+					<settings>
+						<validation>
+							<rule name="required-entry" xsi:type="boolean">true</rule>
+						</validation>
+						<dataType>text</dataType>
+						<label>Qty</label>
+						<dataScope>qty</dataScope>
+					</settings>
+				</field>
+				<field name="price" formElement="input">
+					<argument name="data" xsi:type="array">
+						<item name="config" xsi:type="array">
+							<item name="fit" xsi:type="boolean">false</item>
+						</item>
+					</argument>
+					<settings>
+						<validation>
+							<rule name="required-entry" xsi:type="boolean">true</rule>
+						</validation>
+						<dataType>text</dataType>
+						<label>Price</label>
+						<dataScope>price</dataScope>
+					</settings>
+				</field>
+				<field name="image">
+					<argument name="data" xsi:type="array">
+						<item name="config" xsi:type="array">
+							<item name="dataType" xsi:type="string">string</item>
+							<item name="source" xsi:type="string">SalesReps</item>
+							<item name="label" xsi:type="string" translate="true">Image</item>
+							<item name="visible" xsi:type="boolean">true</item>
+							<item name="formElement" xsi:type="string">imageUploader</item>
+							<item name="elementTmpl" xsi:type="string">ui/form/element/uploader/uploader</item>
+							<item name="previewTmpl" xsi:type="string">Brainvire_SalesReps/image-preview</item>
+							<item name="required" xsi:type="boolean">false</item>
+							<item name="uploaderConfig" xsi:type="array">
+								<item name="url" xsi:type="url" path="brainvire_salesreps/salesreps/upload"/>
+							</item>
+						</item>
+					</argument>
+				</field>
+				<field name="customer_group" component="Magento_Ui/js/form/element/select" formElement="select">
+					<settings>
+						<dataType>text</dataType>
+						<label translate="true">Customer Group</label>
+						<disabled>false</disabled>
+						<dataScope>customer_group</dataScope>
+					</settings>
+					<formElements>
+						<select>
+							<settings>
+								<options class="Magento\Customer\Model\Customer\Source\GroupSourceInterface"/>
+							</settings>
+						</select>
+					</formElements>
+				</field>
+				<actionDelete template="Magento_Backend/dynamic-rows/cells/action-delete">
+					<settings>
+						<componentType>actionDelete</componentType>
+						<dataType>text</dataType>
+						<!--  <label>Actions</label> -->
+						<additionalClasses>
+							<class name="data-grid-actions-cell">true</class>
+						</additionalClasses>
+					</settings>
+				</actionDelete>
+			</container>
+		</dynamicRows>
+	</fieldset>
+	<fieldset name="assign_customers">
+		<settings>
+			<label>Customer Selection</label>
+		</settings>
+		<container name="assign_customers_container" sortOrder="160">
+            <htmlContent name="html_content">
+                <block name="gallery" class="Brainvire\SalesReps\Block\Adminhtml\SalesReps\AssignCustomers"/>
+            </htmlContent>
+        </container>
+	</fieldset>
+</form>

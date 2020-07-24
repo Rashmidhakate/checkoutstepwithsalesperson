@@ -1,0 +1,53 @@
+<!--Use 'stepCode' as id attribute-->
+<li data-bind="fadeVisible: isVisible, attr: { id: stepCode }">
+<div class="step-title" data-bind="i18n: stepTitle" data-role="title"></div>
+    <div id="checkout-step-title"
+         class="step-content"
+         data-role="content">
+        <p>The customer is <span data-bind="if: !isLogedIn">not</span> Logged-in</p>
+        <h2 data-bind="text: message"></h2>
+        <table>
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th>Product Name</th>
+            <th>Product Price</th>
+            <th>Preview</th>
+            <th> qty </th>
+            <th>action</th>
+          </tr>
+        </thead>
+        <tbody data-bind="foreach: productList">
+          <tr data-bind="attr: {id: entity_id}">
+            <td data-bind="text: entity_id"></td>
+            <td data-bind="text: name"></td>
+            <td data-bind="text: price"></td>
+            <td><img data-bind="attr: {src: src}" width="120" height="150" alt="Product Image"></td>
+            <td>
+              <button data-bind="attr: {id: entity_id},click: $parent.decreaseQty">-</button>
+                <input 
+                  type="number"
+                  name="qty"
+                  id="qty"
+                  value="1"
+                  maxlength="12"
+                  title="<?php echo __('Qty') ?>"
+                  class="input-text qty"
+                />
+              <button data-bind="attr: {id: entity_id},click: $parent.increaseQty">+</button>
+            </td>
+          </tr>
+        </tbody>
+        </table>
+        <button data-bind="click: addToCart">Add To Cart</button>
+        <form data-bind="submit: navigateToNextStep" novalidate="novalidate">
+            <div class="actions-toolbar">
+                <div class="primary">
+                    <button data-role="opc-continue" type="submit" class="button action continue primary">
+                        <span><!-- ko i18n: 'Next'--><!-- /ko --></span>
+                    </button>
+                </div>
+            </div>
+        </form>
+    </div>
+</li>

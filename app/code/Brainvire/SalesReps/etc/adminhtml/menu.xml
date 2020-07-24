@@ -1,0 +1,7 @@
+<?xml version="1.0" ?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Backend:etc/menu.xsd">
+	<menu>
+		<add id="Brainvire::top_level" module="Brainvire_SalesReps" resource="Magento_Backend::content" sortOrder="9999" title="Brainvire"/>
+		<add action="brainvire_salesreps/salesreps/index" id="Brainvire_SalesReps::brainvire_salesreps_salesreps" module="Brainvire_SalesReps" parent="Brainvire::top_level" resource="Magento_Backend::content" sortOrder="9999" title="SalesReps"/>
+	</menu>
+</config>

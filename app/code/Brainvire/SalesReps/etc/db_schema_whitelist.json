@@ -1,0 +1,31 @@
+{
+    "brainvire_salesreps_salesreps": {
+        "column": {
+            "salesreps_id": true,
+            "sales_person_code": true,
+            "sales_person_name": true,
+            "sales_person_division": true,
+            "sales_manager_division": true,
+            "sales_manager_code": true,
+            "customer_ids": true
+        },
+        "constraint": {
+            "PRIMARY": true
+        }
+    },
+    "brainvire_salesreps_product": {
+        "column": {
+            "record_id": true,
+            "salesreps_id": true,
+            "sku": true,
+            "qty": true,
+            "price": true,
+            "customer_group": true,
+            "image": true
+        },
+        "constraint": {
+            "PRIMARY": true,
+            "FK_9C58F4F5F2440A1D538961A9F5E92A53": true
+        }
+    }
+}

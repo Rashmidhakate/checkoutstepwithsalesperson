@@ -1,0 +1,30 @@
+<?php
+/**
+ * Copyright © Magento, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+
+/** @var \Magento\Catalog\Block\Adminhtml\Category\AssignProducts $block */
+
+/** @var \Magento\Catalog\Block\Adminhtml\Category\Tab\Product $blockGrid */
+$blockGrid = $block->getBlockGrid();
+$gridJsObjectName = $blockGrid->getJsObjectName();
+?>
+<?= $block->getGridHtml() ?>
+<?php //echo  $block->getCustomersJson();exit; ?>
+
+<input type="hidden" name="salesperson_customers" id="in_salesperson_customers" data-form-part="brainvire_salesreps_salesreps_form" value="" />
+<script type="text/x-magento-init">
+    {
+        "*": {
+            "Brainvire_SalesReps/js/assign-customers": {
+                "selectedCustomers": <?= /* @noEscape */ $block->getCustomersJson() ?>,
+                "gridJsObjectName": <?= /* @noEscape */ '"' . $gridJsObjectName . '"' ?: '{}' ?>
+            }
+        }
+    }
+</script>
+<!-- @todo remove when "UI components" will support such initialization -->
+<script>
+    require('mage/apply/main').apply();
+</script>
