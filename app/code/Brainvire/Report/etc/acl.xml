@@ -1,0 +1,16 @@
+<?xml version="1.0" ?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:Acl/etc/acl.xsd">
+	<acl>
+		<resources>
+			<resource id="Magento_Backend::admin">
+				<resource id="Brainvire_Report::customerreport" sortOrder="10" title="CustomerReport">
+					<resource id="Brainvire_Report::customerreport_save" sortOrder="10" title="Save CustomerReport"/>
+					<resource id="Brainvire_Report::customerreport_delete" sortOrder="20" title="Delete CustomerReport"/>
+					<resource id="Brainvire_Report::customerreport_update" sortOrder="30" title="Update CustomerReport"/>
+					<resource id="Brainvire_Report::customerreport_view" sortOrder="40" title="View CustomerReport"/>
+					<resource id="Brainvire_Report::customerreport_config" sortOrder="50" title="config CustomerReport"/>
+				</resource>
+			</resource>
+		</resources>
+	</acl>
+</config>

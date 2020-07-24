@@ -1,0 +1,58 @@
+<form class="form create account form-create-account" method="post" id="form-validate" enctype="multipart/form-data" autocomplete="off" novalidate="novalidate" action="<?php echo $block->getBaseUrl().'customerreport/index/new' ?>">
+    <div class="actions-toolbar">
+        <div class="primary">
+            <button type="submit" class="action submit primary" title="Submit"><span>Add New Report</span></button>
+        </div>
+    </div>
+</form>
+<?php
+/**
+ * Copyright © Magento, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+
+// phpcs:disable Magento2.Templates.ThisInTemplate
+
+/** @var \Brainvire\Report\Block\Report $block */
+?>
+<?php $reportCollection = $block->getReportCollection(); ?>
+<?php if ($reportCollection && count($reportCollection)) : ?>
+    <div class="table-wrapper orders-history">
+        <table class="data table table-order-items history" id="my-orders-table">
+            <caption class="table-caption"><?= $block->escapeHtml(__('Report An Error')) ?></caption>
+            <thead>
+                <tr>
+                    <th scope="col" class="col firstname"><?= $block->escapeHtml(__('Customer Firstname')) ?></th>
+                    <th scope="col" class="col lastname"><?= $block->escapeHtml(__('Customer Lastname')) ?></th>
+                    <th scope="col" class="col error-description"><?= $block->escapeHtml(__('Error Description')) ?></th>
+                    <th scope="col" class="col created-at"><?= $block->escapeHtml(__('Created At')) ?></th>
+                    <th scope="col" class="col action"><?= $block->escapeHtml(__('Action')) ?></th>
+                </tr>
+            </thead>
+            <tbody>
+                <?php foreach ($reportCollection as $report) : ?>
+                    <tr>
+                        <td data-th="<?= $block->escapeHtml(__('Customer Firstname')) ?>" class="col firstname"><?= $block->escapeHtml($report->getCustomerFirstname()) ?></td>
+                        <td data-th="<?= $block->escapeHtml(__('Customer Lastname')) ?>" class="col firstname"><?= /* @noEscape */ $block->escapeHtml($report->getCustomerLastname()) ?></td>
+                        <td data-th="<?= $block->escapeHtml(__('Error Description')) ?>" class="col error-description"><?= /* @noEscape */ $block->escapeHtml($report->getErrorDescription()) ?></td>
+                        <td data-th="<?= $block->escapeHtml(__('Created At')) ?>" class="col date"><?= /* @noEscape */ $block->getFormatedate($report->getCreatedAt()) ?></td>
+                        <td data-th="<?= $block->escapeHtml(__('Action')) ?>" class="col action">
+                            <a href="<?= $block->escapeUrl($block->getViewUrl($report->getReportId())) ?>" class="action view">
+                                <span><?= $block->escapeHtml(__('View Report')) ?></span>
+                            </a>
+                        </td>
+                    </tr>
+                <?php endforeach; ?>
+            </tbody>
+        </table>
+    </div>
+    <?php if ($block->getPagerHtml()) : ?>
+        <div class="order-products-toolbar toolbar bottom"><?= $block->getPagerHtml() ?></div>
+    <?php endif ?>
+<?php else : ?>
+    <div class="message info empty"><span><?= $block->escapeHtml(__('There is no error report available')) ?></span></div>
+<?php endif ?>
+
+<div class="actions-toolbar">
+    <div class="secondary"><a class="action back" href="<?= $block->escapeUrl($block->getBaseUrl().'customerreport/index/index') ?>"><span><?= $block->escapeHtml(__('Back')) ?></span></a></div>
+</div>
